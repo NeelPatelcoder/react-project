@@ -1,0 +1,100 @@
+const titleChangeHandler = (event) =>{
+    console.log(event.target.value);
+};
+
+    return (
+        <form>
+            <div className='new-expense_controls'>
+                <div className='new-expense__controls'></div>
+                <label>Title</label>
+                <input type="text" onChange={titleChangeHandler}/>
+
+
+
+
+
+
+event   is like   props   ke jenathi user input listing kari sakay.
+
+
+titleChangeHandler   aa    on change uper thi title add kari sakay.
+
+
+event.target.value   thi je input thay te target karer ane show kare.
+
+
+
+----------------------------------- multiple usestate -------------------------------
+
+
+
+const ExpenseForm = () => { 
+
+const [enterdtitle, setEnterdtitle] = useState('');
+const [enterdamount, setEnterdamount] = useState('');
+const [enterddate, setEnterddate] = useState('');
+
+
+// event handler
+
+const titleChangeHandler = (event) =>{
+    setEnterdtitle(event.target.value);
+};
+
+const amountChangeHandler = (event) =>{
+    setEnterdamount(event.target.value);
+    
+};
+
+const dateChangeHandler = (event) =>{
+    setEnterddate(event.target.value);
+};
+
+----------------------------------------------------------------------------------------------
+
+
+-------------------------- one usestate ensted of multiple usestate----------------------------
+
+
+
+const [userInput,setUserInput] =useState({
+    enteredtitle:'',
+    enteredamount:'',
+    entereddate:''
+});
+
+
+// event handler
+
+const titleChangeHandler = (event) =>{
+   // setEnterdtitle(event.target.value);
+   setUserInput({
+       ...userInput,
+    enteredtitle: event.target.value,
+   })
+   
+};
+
+const amountChangeHandler = (event) =>{
+   // setEnterdamount(event.target.value);
+   setUserInput({
+       ...userInput,
+    enteredamount: event.target.value,
+   })
+    
+};
+
+const dateChangeHandler = (event) =>{
+    //setEnterddate(event.target.value);
+    setUserInput({
+        ...userInput,
+        entereddate: event.target.value,
+       })
+};
+
+-------------------------------------------------------------------------------------
+
+
+------------------two way binding-----------------------------------
+
+
